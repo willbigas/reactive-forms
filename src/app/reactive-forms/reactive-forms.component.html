@@ -12,14 +12,27 @@
   <label>
     Sobrenome:
     <input type="text" formControlName="lastName">
+     <span *ngIf="cadastroForm.get('lastName')?.errors && (cadastroForm.get('lastName')?.touched || cadastroForm.get('lastName')?.dirty)">
+      Favor, deve ter no minimo {{ cadastroForm.get('lastName')?.errors?.['minlength']?.requiredLength }}
+       e você ja digitou {{ cadastroForm.get('lastName')?.errors?.['minlength']?.actualLength }}
+    </span>
+  </label>
+
+  <br><br>
+  <label>
+    Email:
+    <input type="email" formControlName="email">
   </label>
 
 
   <p>
-    Valor: {{ cadastroForm.get('firstName')?.value }} <br>
-    Touched: {{ cadastroForm.get('firstName')?.touched | json }} <br>
-    Dirty: {{ cadastroForm.get('firstName')?.dirty | json }} <br>
-    Erros: {{ cadastroForm.get('firstName')?.errors | json }} <br>
+<!--    Valor: {{ cadastroForm.get('firstName')?.value }} <br>-->
+<!--    Touched: {{ cadastroForm.get('firstName')?.touched | json }} <br>-->
+<!--    Dirty: {{ cadastroForm.get('firstName')?.dirty | json }} <br>-->
+<!--    Erros: {{ cadastroForm.get('firstName')?.errors | json }} <br>-->
+
+<!--        Erros: {{ cadastroForm.get('lastName')?.errors | json }} <br>-->
+        Erros: {{ cadastroForm.get('email')?.errors | json }} <br>
   </p>
 
   <button [disabled]="cadastroForm.invalid">Enviar</button>
