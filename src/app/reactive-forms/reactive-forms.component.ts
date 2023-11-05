@@ -9,7 +9,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class ReactiveFormsComponent {
 
   public cadastroForm: FormGroup = this.formBuilder.group({
-    firstName: ['' , Validators.required],
+    firstName: ['', Validators.required],
     lastName: ['']
   })
 
@@ -18,8 +18,10 @@ export class ReactiveFormsComponent {
 
 
   public submitForm() {
-    console.log(this.cadastroForm)
-    console.log(this.cadastroForm.value.firstName)
-    console.log(this.cadastroForm.value.lastName)
+    if (this.cadastroForm.valid) {
+      console.log(this.cadastroForm)
+      console.log(this.cadastroForm.value.firstName)
+      console.log(this.cadastroForm.value.lastName)
+    }
   }
 }

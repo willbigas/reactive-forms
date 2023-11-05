@@ -22,5 +22,5 @@
     Erros: {{ cadastroForm.get('firstName')?.errors | json }} <br>
   </p>
 
-  <button>Enviar</button>
+  <button [disabled]="cadastroForm.invalid">Enviar</button>
 </form>
